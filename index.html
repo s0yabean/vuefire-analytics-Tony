@@ -44,7 +44,7 @@
 	<script src="https://gstatic.com/firebasejs/4.2.0/firebase.js"></script>
 	<script src="https://unpkg.com/vuefire/dist/vuefire.js"></script>
 	
-  
+
   <script>
 
 const Bar = { template: '<div>TEMP</div>' }
@@ -64,9 +64,9 @@ const router = new VueRouter({
   routes // short for `routes: routes`
 })
 		var db = firebase.initializeApp({
-        databaseURL: 'https://awesome-56c60.firebaseio.com'
+        databaseURL: 'https://bt3103-week-4-f2ad7.firebaseio.com'
       }).database()
-      var chartsRef = db.ref('charts')
+      var chartsRef = db.ref('Charts')
       new Vue({
         el: '#app',
        router,
@@ -78,7 +78,7 @@ const router = new VueRouter({
         },
         firebase: {
         charts: {
-            source: db.ref('charts'),
+            source: db.ref('Charts'),
           // optionally bind as an object
             asObject: true,
        }},
