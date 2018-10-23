@@ -1,5 +1,8 @@
+//test framework
 import Vue from "vue";
 import App from "./components/App.js";
+
+//toEqual, toBe
 
 describe("Vue component tests", () => {
   it("An example test should pass.", () => {
@@ -7,9 +10,11 @@ describe("Vue component tests", () => {
   });
   it("The component should have a title property.", () => {
     const defaultData = App.data();
-    // expect(defaultData.title).toBe("BT3103 Week 10");
+    expect(defaultData.title).toBe("Hello");
   });
-
+  it("The component should have a change function.", () => {
+    expect(typeof App.methods.function_1234).toBe("function");
+  });
   it("The component should have an updateCurrentChart function.", () => {
     expect(typeof App.methods.updateCurrentChart).toBe("function");
   });
@@ -29,6 +34,11 @@ describe("Vue component tests", () => {
   });
   it("Current chart should be localBarData.", () => {
     const defaultData = App.data();
+    expect(defaultData.currentChart).toBe("localBarData");
+  });
+  it("Add Tony's test", () => {
+    const defaultData = App.data();
+    expect(defaultData.localLineData.length).toBe(3);
     expect(defaultData.currentChart).toBe("localBarData");
   });
 });
