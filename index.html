@@ -19,6 +19,15 @@
 	  <router-link to="local">Local</router-link>
 	</p>
 
+<div id="test_button">
+	<button v-on:click="counter++">Add 1</button>
+			  <p>The button above has been clicked {{ counter }} times.</p>
+			</div>
+
+    <button v-on:click="visit_flask()">Change Firebase</button>
+			  <p>The button above has been clicked {{ ip }} times.</p>
+			</div>
+
     <div v-if="charts.barData2 && currentRoute === '/bar'">
       Chart: {{charts.barData2.title }}
       <column-chart :data="charts.barData2.data"></column-chart>
@@ -72,6 +81,8 @@ const router = new VueRouter({
        router,
         data: {
           newTodoText: '',
+         counter: 0,
+         ip: '2',
           username:'anonymous',
          	localBarData: [["Jan", 4], ["Feb", 2], ["Mar", 10], ["Apr", 5], ["May", 3]],
           localLineData: [["Sun", 32], ["Mon", 46], ["Tue", 28]]
@@ -87,7 +98,14 @@ const router = new VueRouter({
           currentRoute () {
           // We will see what `params` is shortly
             return this.$route.path
-          }
+          },
+		 visit_flask() {
+	     console.log('function started!')
+       this.$http.get("https://httpbin.org/ip").then
+       (result => { this.ip = result.body.origin; 
+        console.log('function ran!')},
+        error => { console.error(error);
+		}); }
         }
       })
 	</script>
